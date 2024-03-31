@@ -186,21 +186,5 @@ public class Village {
 		return chaine.toString();
 	}
 
-	public static void main(String[] args) {
-		Village village = new Village("bilage de mahdi", 7, 7);
-
-		Gaulois mahdi = new Gaulois("maahdi", 5);
-		Gaulois amine = new Gaulois("amine", 5);
-		village.marche.utiliserEtalLibre(0, mahdi, "fleurs", 5);
-		village.marche.utiliserEtalLibre(1, amine, "memicha", 5);
-		village.marche.utiliserEtalLibre(2, amine, "memicha", 5);
-		village.marche.utiliserEtalLibre(3, amine, "fleurs", 5);
-		village.marche.utiliserEtalLibre(5, mahdi, "fleurs", 5);
-
-		System.out.println(village.marche.afficherMarche());
-//		
-//		
-
-	}
 
 }
