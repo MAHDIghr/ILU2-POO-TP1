@@ -186,5 +186,4 @@ public class Village {
 		return chaine.toString();
 	}
 
-
 }

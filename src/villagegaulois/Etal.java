@@ -26,17 +26,24 @@ public class Etal {
 	}
 
 	public String libererEtal() {
-		etalOccupe = false;
-		StringBuilder chaine = new StringBuilder(
-				"Le vendeur " + vendeur.getNom() + " quitte son étal, ");
-		int produitVendu = quantiteDebutMarche - quantite;
-		if (produitVendu > 0) {
-			chaine.append(
-					"il a vendu " + produitVendu + " parmi " + produit + ".\n");
-		} else {
-			chaine.append("il n'a malheureusement rien vendu.\n");
-		}
-		return chaine.toString();
+	    try {
+	        if (!etalOccupe) {
+	            throw new IllegalStateException("L'étal n'a pas été occupé précédemment.");
+	        }
+	        etalOccupe = false;
+	        StringBuilder chaine = new StringBuilder(
+	                "Le vendeur " + vendeur.getNom() + " quitte son étal, ");
+	        int produitVendu = quantiteDebutMarche - quantite;
+	        if (produitVendu > 0) {
+	            chaine.append(
+	                    "il a vendu " + produitVendu + " parmi " + produit + ".\n");
+	        } else {
+	            chaine.append("il n'a malheureusement rien vendu.\n");
+	        }
+	        return chaine.toString();
+	    } catch (IllegalStateException e) {
+	        return "Exception : " + e.getMessage();
+	    }
 	}
 
 	public String afficherEtal() {
